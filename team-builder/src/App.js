@@ -10,14 +10,11 @@ export default function App() {
   const [ teamMember, setTeamMember ] = useState(teamMemberList);
   const [ formValues, setFormValues ] = useState(initialFormVal); // take and hold all values in form
 
-  const updateForm = evt => { // take value passed in from input to update formValues
-    const { inputName, inputValue } = evt.target;
+  const updateForm = (inputName, inputValue) => { // take value passed in from input to update formValues
     setFormValues({...formValues, [inputName]: inputValue})
   }
 
-  const formSubmit = evt => { // function to be used inside of forms onSubmit
-    // stoping page from reloading after every submit
-    evt.preventDefault();
+  const formSubmit = () => { // function to be used inside of forms onSubmit
     // making a new teamMember obj, trimming whitespace from submition
     const newTeamMember = {
       name: formValues.name.trim(),
